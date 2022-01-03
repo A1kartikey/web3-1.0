@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ethereum</title>
+</head>
+<body>
+    <h1 id="displayresult">Hello Everyone</h1>
+
+    <form id="contact-form" method="POST" action="/newWord">
+
+        <input type="text" name="word" id="word">
+       
+        <input type="submit" value="submitForm" />
+ 
+    </form>
+
+    <button onclick="myajax()">getState</button>
+    
+</body>
+<script>
+    function myajax(){
+        var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("displayresult").innerHTML = this.responseText;
+            }
+            };
+            xhttp.open("GET", "/getString", true);
+            xhttp.send();
+    }
+</script>
+
+</html>
